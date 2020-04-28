@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.21.3">
+    <meta name="project" content="Advent of Code 1 v0.1.0">
+    <title>Advent Of Code Day: The Tyranny of the Rocket Equation — Advent of Code 1 v0.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-0ab8a6a80ebaaa287431.css" />
+    <script src="dist/sidebar_items-0698bf5e1e.js"></script>
+      <script src="docs_config.js"></script>
+    <script async src="dist/app-a225d03098e64fef431a.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button">
+      <span class="icon-cross" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Search" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="http://bonganimbigi.com/advent_of_code1" class="sidebar-projectName">
+Advent of Code 1      </a>
+      <h2 class="sidebar-projectVersion">
+        v0.1.0
+      </h2>
+    </div>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>Advent Of Code Day: The Tyranny of the Rocket Equation</h1>
+<p>Santa has become stranded at the edge of the Solar System while delivering presents to other planets! To accurately calculate his position in space, safely align his warp drive, and return to Earth in time to save Christmas, he needs you to bring him measurements from fifty stars.</p>
+<p>Collect stars by solving puzzles. Two puzzles will be made available on each day in the Advent calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants one star. Good luck!</p>
+<p>The Elves quickly load you into a spacecraft and prepare to launch.</p>
+<p>At the first Go / No Go poll, every Elf is Go until the Fuel Counter-Upper. They haven&#39;t determined the amount of fuel required yet.</p>
+<p>Fuel required to launch a given module is based on its mass. Specifically, to find the fuel required for a module, take its mass, divide by three, round down, and subtract 2.</p>
+<p>For example:</p>
+<pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">For</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mass</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="n">divide</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">round</span><span class="w"> </span><span class="n">down</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">subtract</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="mi">2</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">For</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mass</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="n">dividing</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">rounding</span><span class="w"> </span><span class="n">down</span><span class="w"> </span><span class="n">still</span><span class="w"> </span><span class="n">yields</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">fuel</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="mi">2</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">For</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mass</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">1969</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">fuel</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">654</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">For</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mass</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">100756</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">fuel</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">33583</span><span class="o">.</span></code></pre>
+<p>The Fuel Counter-Upper needs to know the total fuel requirement. To find it, individually calculate the fuel needed for the mass of each module (your puzzle input), then add together all the fuel values.</p>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.21.3),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

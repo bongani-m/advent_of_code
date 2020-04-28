@@ -7,7 +7,16 @@ defmodule AdventOfCode1.MixProject do
       version: "0.1.0",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+
+      # Docs
+      name: "Advent of Code 1",
+      source_url: "https://github.com/bongani-m/advent_of_code1",
+      homepage_url: "http://bonganimbigi.com/advent_of_code1",
+      docs: [
+        extras: ["README.md"],
+        output: "docs" # for github pages to work
+      ]
     ]
   end
 

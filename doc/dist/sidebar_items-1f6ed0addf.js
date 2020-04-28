@@ -1,1 +1,0 @@
-sidebarNodes={"extras":[{"group":"","headers":[{"anchor":"modules","id":"Modules"}],"id":"api-reference","title":"API Reference"}],"modules":[{"group":"","id":"AdventOfCode1","nodeGroups":[{"key":"functions","name":"Functions","nodes":[{"anchor":"calc/1","id":"calc/1"},{"anchor":"hello/0","id":"hello/0"}]}],"title":"AdventOfCode1"}],"tasks":[]}
