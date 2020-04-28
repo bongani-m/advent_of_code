@@ -1,18 +1,18 @@
-defmodule AdventOfCode1.MixProject do
+defmodule AdventOfCode.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :advent_of_code_1,
+      app: :advent_of_code,
       version: "0.1.0",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
 
       # Docs
-      name: "Advent of Code 1",
-      source_url: "https://github.com/bongani-m/advent_of_code1",
-      homepage_url: "http://bonganimbigi.com/advent_of_code1",
+      name: "Advent of Code",
+      source_url: "https://github.com/bongani-m/advent_of_code",
+      homepage_url: "http://bonganimbigi.com/advent_of_code/docs",
       docs: [
         extras: ["README.md"],
         output: "docs" # for github pages to work
@@ -31,8 +31,6 @@ defmodule AdventOfCode1.MixProject do
   defp deps do
     [
       {:ex_doc, "~> 0.21.3"}
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
     ]
   end
 end
